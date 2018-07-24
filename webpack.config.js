@@ -1,29 +1,24 @@
+const webpack = require('webpack');
 const path = require('path');
-const htmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-    entry: './client/src/index.jsx',
-    output: {
-        path: path.join(__dirname, '/client/dist'),
-        filename: 'bundle.js'
-    },
-    resolve: {
-        extensions: [".js", ".jsx"]
-    },
-    module: {
-        rules: [
-            {
-                test: /\.jsx?$/,
-                exclude: /node_modules/,
-                use: {
-                    loader: 'babel-loader'
-                }
-            }
-        ]
-    },
-    plugins: [
-        new htmlWebpackPlugin({
-            template: './client/src/index.html'
-        })
-    ]
-}
+  mode: 'development',
+  context: `${__dirname}/client/src`,
+  entry: './index.js',
+  module: {
+    rules: [
+      {
+        test: /\.jsx?$/,
+        exclude: /node_modules/,
+        loader: 'babel-loader',
+        query: {
+          presets: ['react', 'es2015', 'env'],
+        },
+      },
+    ],
+  },
+  output: {
+    path: `${__dirname}/client/dist`,
+    filename: 'bundle.js',
+  },
+};

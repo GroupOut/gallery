@@ -6,7 +6,7 @@
     "type": "git",
     "url": "https://github.com/GroupOut/descriptions.git"
   },
-  "author": "Jens Leerssen",
+  "author": "Christian Noh",
   "license": "ISC",
   "engines": {
     "node": ">=6.13.0"
@@ -15,7 +15,7 @@
   "scripts": {
     "lint": "eslint '**/*.{js,jsx}' --quiet",
     "format": "prettier --write '**/*.{js,jsx}'",
-    "bd": "webpack -d --watch",
+    "build": "webpack -d --watch",
     "test": "jest"
   },
   "dependencies": {
@@ -24,6 +24,8 @@
     "babel-preset-env": "^1.7.0",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
     "jest": "^23.4.1",
     "react": "^16.4.1",
     "react-dom": "^16.4.1"

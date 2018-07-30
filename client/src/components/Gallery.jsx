@@ -2,6 +2,8 @@ import React from 'react';
 import $ from 'jquery';
 import Main from './Main.jsx';
 import Thumbnail from './Thumbnail.jsx';
+import LeftButton from './LeftButton.jsx';
+import RightButton from './RightButton.jsx';
 
 class Gallery extends React.Component {
   constructor(props) {
@@ -52,8 +54,6 @@ class Gallery extends React.Component {
             data.data[random].URL9a,
           ],
         });
-        console.log('hi');
-        this.render();
       },
       dataType: 'json',
     });
@@ -64,26 +64,20 @@ class Gallery extends React.Component {
     this.setState({ current: newMain });
   }
 
-  handleNextClick(e) {
+  handleNextClick() {
     if (Number(this.state.current[51]) < 9) {
       this.setState({
-        current: `${e.target.src.substring(0, 51) + (Number(e.target.src[52]) + 1).toString()}.jpg`,
-      });
-    } else {
-      this.setState({
-        current: `${e.target.src.substring(0, 51)}0.jpg`,
+        current: `${this.state.current.substring(0, 51)
+          + (Number(this.state.current[51]) + 1).toString()}.jpg`,
       });
     }
   }
 
-  handlePrevClick(e) {
+  handlePrevClick() {
     if (Number(this.state.current[51]) > 0) {
       this.setState({
-        current: `${e.target.src.substring(0, 51) + (Number(e.target.src[52]) - 1).toString()}.jpg`,
-      });
-    } else {
-      this.setState({
-        current: `${e.target.src.substring(0, 51)}9.jpg`,
+        current: `${this.state.current.substring(0, 51)
+          + (Number(this.state.current[51]) - 1).toString()}.jpg`,
       });
     }
   }
@@ -91,6 +85,8 @@ class Gallery extends React.Component {
   render() {
     return (
       <div>
+        <LeftButton handlePrevClick={this.handlePrevClick} />
+        <RightButton handleNextClick={this.handleNextClick} />
         <Main current={this.state.current} />
         <div>
           {this.state.thumbs.map((url, index) => (

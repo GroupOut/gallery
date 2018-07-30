@@ -1,4 +1,5 @@
 import React from 'react';
+import styled from 'styled-components';
 
 const buttonStyle = {
   width: '48px',
@@ -12,10 +13,22 @@ const buttonStyle = {
   opacity: '.4',
 };
 
+const PrevButton = styled.button`
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  font-size: 20pt;
+  font-weight: lighter;
+  position: absolute;
+  left: 20px;
+  top: 260px;
+  opacity: 0.4;
+`;
+
 const LeftButton = props => (
-  <button onClick={props.handlePrevClick} type="button" style={buttonStyle}>
+  <PrevButton onClick={props.handlePrevClick} type="button">
     {'<'}
-  </button>
+  </PrevButton>
 );
 
 module.exports = LeftButton;

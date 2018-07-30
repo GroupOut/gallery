@@ -1,10 +1,11 @@
 import React from 'react';
+import styled from 'styled-components';
 
-const imgStyle = {
-  width: '54%',
-  height: 'auto',
-  marginBottom: '10px',
-};
+const MainView = styled.img`
+  width: 54%;
+  height: auto;
+  margin-bottom: 10px;
+`;
 
 class Main extends React.Component {
   constructor(props) {
@@ -17,7 +18,7 @@ class Main extends React.Component {
   render() {
     return (
       <div>
-        <img src={this.props.current} alt="" style={imgStyle} />
+        <MainView src={this.props.current} alt="" />
       </div>
     );
   }

@@ -1,14 +1,15 @@
 import React from 'react';
+import styled from 'styled-components';
 
-const imgStyle = {
-  width: '4.4%',
-  height: 'auto',
-};
+const ThumbnailImage = styled.img`
+  width: 4.4%;
+  height: auto;
+`;
 
-const liStyle = {
-  display: 'inline',
-  marginRight: '10px',
-};
+const ThumbnailListElement = styled.li`
+  display: inline;
+  margin-right: 10px;
+`;
 
 class Thumbnail extends React.Component {
   constructor(props) {
@@ -20,14 +21,9 @@ class Thumbnail extends React.Component {
 
   render() {
     return (
-      <li style={liStyle}>
-        <img
-          src={this.props.thumb}
-          alt=""
-          style={imgStyle}
-          onClick={this.props.handleThumbnailClick}
-        />
-      </li>
+      <ThumbnailListElement>
+        <ThumbnailImage src={this.props.thumb} alt="" onClick={this.props.handleThumbnailClick} />
+      </ThumbnailListElement>
     );
   }
 }

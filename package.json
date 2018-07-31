@@ -16,7 +16,8 @@
     "lint": "eslint '**/*.{js,jsx}' --quiet",
     "format": "prettier --write '**/*.{js,jsx}'",
     "build": "webpack -d --watch",
-    "test": "jest"
+    "test": "jest",
+    "start": "nodemon server.js"
   },
   "dependencies": {
     "aws-sdk": "^2.280.1",
@@ -30,6 +31,7 @@
     "jest": "^23.4.1",
     "jquery": "^3.3.1",
     "mysql": "^2.16.0",
+    "nodemon": "^1.18.3",
     "path": "^0.12.7",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",

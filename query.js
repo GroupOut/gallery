@@ -9,8 +9,9 @@ const connection = mysql.createConnection({
 
 connection.connect();
 
-const getImages = (callback) => {
-  connection.query('SELECT * FROM deal_images;', (error, results, fields) => {
+const getImages = (deal, callback) => {
+  console.log(deal);
+  connection.query(`select * from deal_images where id=${deal};`, (error, results, fields) => {
     if (error) throw error;
     callback(null, results);
   });

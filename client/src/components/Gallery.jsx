@@ -94,7 +94,7 @@ class Gallery extends React.Component {
   }
 
   getImages() {
-    const dealId = window.location.pathname.split('/')[1];
+    const dealId = window.location.pathname.split('/')[2];
     const that = this;
     $.ajax({
       url: `http://localhost:3003/images/${dealId}`,

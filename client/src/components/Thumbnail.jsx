@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const ThumbnailImage = styled.img`
-  width: 4.4%;
+  width: 8%;
   height: auto;
 `;
 

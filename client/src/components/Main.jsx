@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const MainView = styled.img`
-  width: 54%;
+  width: 100%;
   height: auto;
   margin-bottom: 10px;
 `;
@@ -17,9 +17,9 @@ class Main extends React.Component {
 
   render() {
     return (
-      <div>
+      <span>
         <MainView src={this.props.current} alt="" />
-      </div>
+      </span>
     );
   }
 }

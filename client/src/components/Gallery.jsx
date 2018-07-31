@@ -1,9 +1,70 @@
 import React from 'react';
 import $ from 'jquery';
+import styled from 'styled-components';
 import Main from './Main.jsx';
 import Thumbnail from './Thumbnail.jsx';
-import LeftButton from './LeftButton.jsx';
-import RightButton from './RightButton.jsx';
+
+const Wrapper = styled.div`
+  max-width: 55%;
+  height: auto;
+  position: relative;
+`;
+
+const NextButton = styled.button`
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  font-size: 100%;
+  font-weight: lighter;
+  position: absolute;
+  right: 20px;
+  bottom: 50%;
+  background: black;
+  color: white;
+  border: black;
+  display: none;
+  ${Wrapper}: hover & {
+    display: inline;
+  }
+  &:hover {
+    background: white;
+    color: black;
+  }
+`;
+
+const PrevButton = styled.button`
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  font-size: 100%;
+  font-weight: lighter;
+  position: absolute;
+  left: 20px;
+  bottom: 50%;
+  background: black;
+  color: white;
+  border: black;
+  display: none;
+  ${Wrapper}: hover & {
+    display: inline;
+  }
+  &:hover {
+    background: white;
+    color: black;
+  }
+`;
+
+const RightButton = props => (
+  <NextButton onClick={props.handleNextClick} type="button">
+    {'>'}
+  </NextButton>
+);
+
+const LeftButton = props => (
+  <PrevButton onClick={props.handlePrevClick} type="button">
+    {'<'}
+  </PrevButton>
+);
 
 class Gallery extends React.Component {
   constructor(props) {
@@ -83,7 +144,7 @@ class Gallery extends React.Component {
 
   render() {
     return (
-      <div>
+      <Wrapper>
         <LeftButton handlePrevClick={this.handlePrevClick} />
         <RightButton handleNextClick={this.handleNextClick} />
         <Main current={this.state.current} />
@@ -92,7 +153,7 @@ class Gallery extends React.Component {
             <Thumbnail key={index} thumb={url} handleThumbnailClick={this.handleThumbnailClick} />
           ))}
         </div>
-      </div>
+      </Wrapper>
     );
   }
 }

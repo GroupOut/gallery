@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Gallery from './Gallery.jsx';
 
 const NextButton = styled.button`
   width: 48px;
@@ -10,7 +11,9 @@ const NextButton = styled.button`
   position: absolute;
   left: 800px;
   top: 260px;
-  opacity: 0.4;
+  background: black;
+  color: white;
+  border: black;
 `;
 
 const RightButton = props => (

@@ -9,12 +9,13 @@ const filepath = path.join(__dirname, './client/dist');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.static(filepath));
+app.use('/:id', express.static(filepath));
 
-app.listen(3003, () => console.log('Listening on port 3003!'));
-
-app.get('/images', (req, res) => {
-  db.getImages((error, images) => {
+app.get('/images/:id', (req, res) => {
+  db.getImages(req.params.id, (error, images) => {
     if (error) throw error;
     res.send({ data: images });
   });
 });
+
+app.listen(3003, () => console.log('Listening on port 3003!'));

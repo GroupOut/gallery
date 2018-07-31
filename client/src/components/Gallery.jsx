@@ -93,25 +93,25 @@ class Gallery extends React.Component {
     this.getImages();
   }
 
-  getImages(deal_id = 22) {
+  getImages() {
+    const dealId = window.location.pathname.split('/')[1];
     const that = this;
     $.ajax({
-      url: 'http://localhost:3003/images/',
-      data: { deal: deal_id },
+      url: `http://localhost:3003/images/${dealId}`,
       success: (data) => {
         that.setState({
-          current: data.data[deal_id].URL0,
+          current: data.data[0].URL0,
           thumbs: [
-            data.data[deal_id].URL0a,
-            data.data[deal_id].URL1a,
-            data.data[deal_id].URL2a,
-            data.data[deal_id].URL3a,
-            data.data[deal_id].URL4a,
-            data.data[deal_id].URL5a,
-            data.data[deal_id].URL6a,
-            data.data[deal_id].URL7a,
-            data.data[deal_id].URL8a,
-            data.data[deal_id].URL9a,
+            data.data[0].URL0a,
+            data.data[0].URL1a,
+            data.data[0].URL2a,
+            data.data[0].URL3a,
+            data.data[0].URL4a,
+            data.data[0].URL5a,
+            data.data[0].URL6a,
+            data.data[0].URL7a,
+            data.data[0].URL8a,
+            data.data[0].URL9a,
           ],
         });
       },

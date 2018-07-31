@@ -18,7 +18,7 @@ const NextButton = styled.button`
   font-weight: lighter;
   position: absolute;
   right: 20px;
-  bottom: 50%;
+  bottom: 55%;
   background: black;
   color: white;
   border: black;
@@ -40,7 +40,7 @@ const PrevButton = styled.button`
   font-weight: lighter;
   position: absolute;
   left: 20px;
-  bottom: 50%;
+  bottom: 55%;
   background: black;
   color: white;
   border: black;
@@ -150,7 +150,12 @@ class Gallery extends React.Component {
         <Main current={this.state.current} />
         <div>
           {this.state.thumbs.map((url, index) => (
-            <Thumbnail key={index} thumb={url} handleThumbnailClick={this.handleThumbnailClick} />
+            <Thumbnail
+              key={index}
+              thumb={url}
+              handleThumbnailClick={this.handleThumbnailClick}
+              current={this.state.current}
+            />
           ))}
         </div>
       </Wrapper>

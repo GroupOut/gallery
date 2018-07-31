@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const MainView = styled.img`
   width: 100%;
   height: auto;
-  margin-bottom: 10px;
+  margin-bottom: 1%;
 `;
 
 class Main extends React.Component {

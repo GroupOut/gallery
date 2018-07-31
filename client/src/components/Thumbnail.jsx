@@ -4,6 +4,14 @@ import styled from 'styled-components';
 const ThumbnailImage = styled.img`
   width: 8%;
   height: auto;
+  margin-bottom: 5px;
+`;
+
+const ThumbnailCurrent = styled.img`
+  width: 8%;
+  height: auto;
+  border: 3px solid green;
+  padding: 2px;
 `;
 
 const ThumbnailListElement = styled.li`
@@ -20,9 +28,20 @@ class Thumbnail extends React.Component {
   }
 
   render() {
+    let thumbnailImg;
+
+    if (this.props.current.substring(0, 52) === this.props.thumb.substring(0, 52)) {
+      thumbnailImg = (
+        <ThumbnailCurrent src={this.props.thumb} alt="" onClick={this.props.handleThumbnailClick} />
+      );
+    } else {
+      thumbnailImg = (
+        <ThumbnailImage src={this.props.thumb} alt="" onClick={this.props.handleThumbnailClick} />
+      );
+    }
     return (
       <ThumbnailListElement>
-        <ThumbnailImage src={this.props.thumb} alt="" onClick={this.props.handleThumbnailClick} />
+        {thumbnailImg}
       </ThumbnailListElement>
     );
   }

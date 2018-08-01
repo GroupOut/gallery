@@ -5,7 +5,7 @@ import Main from './Main.jsx';
 import Thumbnail from './Thumbnail.jsx';
 
 const Wrapper = styled.div`
-  max-width: 55%;
+  max-width: 70%;
   height: auto;
   position: relative;
 `;
@@ -95,7 +95,7 @@ class Gallery extends React.Component {
 
   getImages() {
     const dealId = window.location.pathname.split('/')[2];
-    console.log(dealId)
+    console.log(dealId);
     const that = this;
     $.ajax({
       url: `http://localhost:3003/images/${dealId}`,

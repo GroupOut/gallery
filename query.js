@@ -11,7 +11,7 @@ connection.connect();
 
 const getImages = (deal, callback) => {
   console.log(deal);
-  connection.query(`select * from deal_images where id=${deal};`, (error, results, fields) => {
+  connection.query(`SELECT * FROM deal_images WHERE id=${deal};`, (error, results, fields) => {
     if (error) throw error;
     callback(null, results);
   });

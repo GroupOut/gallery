@@ -14,7 +14,7 @@ app.use((req, res, next) => {
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.static(filepath));
-app.use('/:id', express.static(filepath));
+app.use('/deals/:id', express.static(filepath));
 
 app.get('/images/:id', (req, res) => {
   db.getImages(req.params.id, (error, images) => {

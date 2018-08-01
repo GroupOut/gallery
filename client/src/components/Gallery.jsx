@@ -5,7 +5,7 @@ import Main from './Main.jsx';
 import Thumbnail from './Thumbnail.jsx';
 
 const Wrapper = styled.div`
-  max-width: 70%;
+  max-width: 65%;
   height: auto;
   position: relative;
 `;
@@ -94,31 +94,49 @@ class Gallery extends React.Component {
   }
 
   getImages() {
-    const dealId = window.location.pathname.split('/')[2];
-    console.log(dealId);
     const that = this;
-    $.ajax({
-      url: `http://localhost:3003/images/${dealId}`,
-      success: (data) => {
-        console.log(data.data);
-        that.setState({
-          current: data.data[0].URL0,
-          thumbs: [
-            data.data[0].URL0a,
-            data.data[0].URL1a,
-            data.data[0].URL2a,
-            data.data[0].URL3a,
-            data.data[0].URL4a,
-            data.data[0].URL5a,
-            data.data[0].URL6a,
-            data.data[0].URL7a,
-            data.data[0].URL8a,
-            data.data[0].URL9a,
-          ],
+    const locSplit = window.location.pathname.split('/');
+
+    for (let i = 0; i < locSplit.length; i++) {
+      if (locSplit[i] === 'deals') {
+        var dealId = parseInt(locSplit[i + 1]);
+      }
+    }
+
+    if (typeof dealId === 'number') {
+      if (dealId > 0 && dealId < 101) {
+        $.ajax({
+          url: `http://localhost:3003/images/${dealId}`,
+          success: (data) => {
+            console.log(data.data);
+            that.setState({
+              current: data.data[0].URL0,
+              thumbs: [
+                data.data[0].URL0a,
+                data.data[0].URL1a,
+                data.data[0].URL2a,
+                data.data[0].URL3a,
+                data.data[0].URL4a,
+                data.data[0].URL5a,
+                data.data[0].URL6a,
+                data.data[0].URL7a,
+                data.data[0].URL8a,
+                data.data[0].URL9a,
+              ],
+            });
+          },
+          dataType: 'json',
         });
-      },
-      dataType: 'json',
-    });
+      } else {
+        console.log(
+          `Error: invalid ID: ${dealId}. Please use an ID between 1 and 100 in url. Ex: "localhost:3000/deals/<<ID>>"`,
+        );
+      }
+    } else {
+      console.log(
+        `Error: invalid URL: ${window.location.href}. Please redirect to "localhost:3000/deals/1"`,
+      );
+    }
   }
 
   handleThumbnailClick(e) {

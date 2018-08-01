@@ -8,7 +8,7 @@ const Wrapper = styled.div`
   max-width: 75%;
   height: auto;
   position: relative;
-  margin-left: 125px;
+  margin-left: 12%;
 `;
 
 const NextButton = styled.button`

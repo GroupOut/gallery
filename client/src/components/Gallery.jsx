@@ -10,6 +10,7 @@ const Wrapper = styled.div`
   position: relative;
   margin-left: 12%;
 `;
+//percentage
 
 const NextButton = styled.button`
   width: 48px;

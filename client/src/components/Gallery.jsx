@@ -95,10 +95,12 @@ class Gallery extends React.Component {
 
   getImages() {
     const dealId = window.location.pathname.split('/')[2];
+    console.log(dealId)
     const that = this;
     $.ajax({
       url: `http://localhost:3003/images/${dealId}`,
       success: (data) => {
+        console.log(data.data);
         that.setState({
           current: data.data[0].URL0,
           thumbs: [

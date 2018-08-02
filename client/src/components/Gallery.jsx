@@ -5,12 +5,13 @@ import Main from './Main.jsx';
 import Thumbnail from './Thumbnail.jsx';
 
 const Wrapper = styled.div`
-  max-width: 75%;
+  max-width: 85%;
   height: auto;
   position: relative;
+  margin-top: 3%;
   margin-left: 12%;
+  margin-bottom: 3%;
 `;
-//percentage
 
 const NextButton = styled.button`
   width: 48px;

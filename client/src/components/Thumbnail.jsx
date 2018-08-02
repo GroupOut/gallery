@@ -4,14 +4,14 @@ import styled from 'styled-components';
 const ThumbnailImage = styled.img`
   width: 8%;
   height: auto;
-  margin-bottom: 5px;
+  margin-bottom: 4px;
 `;
 
 const ThumbnailCurrent = styled.img`
-  width: 8%;
+  width: 8%
   height: auto;
   border: 3px solid green;
-  padding: 2px;
+  padding: 1px;
 `;
 
 const ThumbnailListElement = styled.li`

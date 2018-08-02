@@ -1,23 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
-
-const ThumbnailImage = styled.img`
-  width: 8%;
-  height: auto;
-  margin-bottom: 4px;
-`;
-
-const ThumbnailCurrent = styled.img`
-  width: 8%
-  height: auto;
-  border: 3px solid green;
-  padding: 1px;
-`;
-
-const ThumbnailListElement = styled.li`
-  display: inline;
-  margin-right: 10px;
-`;
+import styles from './styles/app.css';
 
 class Thumbnail extends React.Component {
   constructor(props) {
@@ -32,17 +14,27 @@ class Thumbnail extends React.Component {
 
     if (this.props.current.substring(0, 52) === this.props.thumb.substring(0, 52)) {
       thumbnailImg = (
-        <ThumbnailCurrent src={this.props.thumb} alt="" onClick={this.props.handleThumbnailClick} />
+        <img
+          className={styles.thumbnailCurrent}
+          src={this.props.thumb}
+          alt=""
+          onClick={this.props.handleThumbnailClick}
+        />
       );
     } else {
       thumbnailImg = (
-        <ThumbnailImage src={this.props.thumb} alt="" onClick={this.props.handleThumbnailClick} />
+        <img
+          className={styles.thumbnailImage}
+          src={this.props.thumb}
+          alt=""
+          onClick={this.props.handleThumbnailClick}
+        />
       );
     }
     return (
-      <ThumbnailListElement>
+      <li className={styles.thumbnailListElement}>
         {thumbnailImg}
-      </ThumbnailListElement>
+      </li>
     );
   }
 }

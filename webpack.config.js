@@ -8,6 +8,18 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.css$/,
+        loader: 'style-loader',
+      },
+      {
+        test: /\.css$/,
+        loader: 'css-loader',
+        query: {
+          modules: true,
+          localIdentName: '[name]__[local]__[hash:base64:5]',
+        },
+      },
+      {
         test: /\.jsx?$/,
         exclude: /node_modules/,
         loader: 'babel-loader',

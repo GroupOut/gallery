@@ -1,0 +1,78 @@
+.wrapper {
+  max-width: 85%;
+  height: auto;
+  position: relative;
+  margin-top: 30px;
+  margin-left: 12%;
+  margin-bottom: 3%;
+}
+.wrapper:hover > .next {
+  display: inline;
+}
+.wrapper:hover > .prev {
+  display: inline;
+}
+
+.next {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  font-size: 100%;
+  font-weight: lighter;
+  position: absolute;
+  right: 20px;
+  bottom: 55%;
+  background: black;
+  color: white;
+  border: black;
+  display: none;
+}
+
+.prev {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  font-size: 100%;
+  font-weight: lighter;
+  position: absolute;
+  left: 20px;
+  bottom: 55%;
+  background: black;
+  color: white;
+  border: black;
+  display: none;
+}
+
+.next:hover {
+  background: white;
+  color: black;
+}
+
+.prev:hover {
+  background: white;
+  color: black;
+}
+
+.mainView {
+  width: 100%;
+  height: auto;
+  margin-bottom: 1%;
+}
+
+.thumbnailImage {
+  width: 8%;
+  height: auto;
+  margin-bottom: 4px;
+}
+
+.thumbnailCurrent {
+  width: 8%;
+  height: auto;
+  border: 3px solid green;
+  padding: 1px;
+}
+
+.thumbnailListElement {
+  display: inline;
+  margin-right: 10px;
+}

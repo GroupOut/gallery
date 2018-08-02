@@ -3,71 +3,7 @@ import $ from 'jquery';
 import styled from 'styled-components';
 import Main from './Main.jsx';
 import Thumbnail from './Thumbnail.jsx';
-
-const Wrapper = styled.div`
-  max-width: 85%;
-  height: auto;
-  position: relative;
-  margin-top: 30px;
-  margin-left: 12%;
-  margin-bottom: 3%;
-`;
-
-const NextButton = styled.button`
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  font-size: 100%;
-  font-weight: lighter;
-  position: absolute;
-  right: 20px;
-  bottom: 55%;
-  background: black;
-  color: white;
-  border: black;
-  display: none;
-  ${Wrapper}: hover & {
-    display: inline;
-  }
-  &:hover {
-    background: white;
-    color: black;
-  }
-`;
-
-const PrevButton = styled.button`
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  font-size: 100%;
-  font-weight: lighter;
-  position: absolute;
-  left: 20px;
-  bottom: 55%;
-  background: black;
-  color: white;
-  border: black;
-  display: none;
-  ${Wrapper}: hover & {
-    display: inline;
-  }
-  &:hover {
-    background: white;
-    color: black;
-  }
-`;
-
-const RightButton = props => (
-  <NextButton onClick={props.handleNextClick} type="button">
-    {'>'}
-  </NextButton>
-);
-
-const LeftButton = props => (
-  <PrevButton onClick={props.handlePrevClick} type="button">
-    {'<'}
-  </PrevButton>
-);
+import styles from './styles/app.css';
 
 class Gallery extends React.Component {
   constructor(props) {
@@ -167,10 +103,14 @@ class Gallery extends React.Component {
 
   render() {
     return (
-      <Wrapper>
-        <LeftButton handlePrevClick={this.handlePrevClick} />
-        <RightButton handleNextClick={this.handleNextClick} />
-        <Main current={this.state.current} />
+      <div className={styles.wrapper}>
+        <button className={styles.next} onClick={this.handlePrevClick} type="button">
+          {'>'}
+        </button>
+        <button className={styles.prev} onClick={this.handleNextClick} type="button">
+          {'<'}
+        </button>
+        <Main className={styles.mainView} current={this.state.current} alt="" />
         <div>
           {this.state.thumbs.map((url, index) => (
             <Thumbnail
@@ -181,7 +121,7 @@ class Gallery extends React.Component {
             />
           ))}
         </div>
-      </Wrapper>
+      </div>
     );
   }
 }

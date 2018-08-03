@@ -104,10 +104,10 @@ class Gallery extends React.Component {
   render() {
     return (
       <div className={styles.wrapper}>
-        <button className={styles.next} onClick={this.handlePrevClick} type="button">
+        <button className={styles.next} onClick={this.handleNextClick} type="button">
           {'>'}
         </button>
-        <button className={styles.prev} onClick={this.handleNextClick} type="button">
+        <button className={styles.prev} onClick={this.handlePrevClick} type="button">
           {'<'}
         </button>
         <Main className={styles.mainView} current={this.state.current} alt="" />

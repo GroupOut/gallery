@@ -1,0 +1,19 @@
+version: '3.3'
+
+services:
+  database:
+    build: ./dbdocker/
+    image: mysql:5.7
+    environment:
+      - MYSQL_DATABASE=images
+      - MYSQL_ALLOW_EMPTY_PASSWORD='yes'
+      - MYSQL_USER=root
+    ports: 
+      - '3306:3306'
+
+  gallery:
+    build: .
+    depends_on:
+      - 'database'
+    ports:
+      - '3003:3003'

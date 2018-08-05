@@ -15,9 +15,9 @@
   "scripts": {
     "lint": "eslint '**/*.{js,jsx}' --quiet",
     "format": "prettier --write '**/*.{js,jsx}'",
-    "build": "webpack -d --watch",
+    "build": "webpack -d",
     "test": "jest",
-    "start": "nodemon server.js"
+    "start": "node server.js"
   },
   "dependencies": {
     "aws-sdk": "^2.280.1",

@@ -24,3 +24,7 @@ coverage
 build/
 client/dist/bundle.js
 example/
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml

@@ -45,7 +45,7 @@ class Gallery extends React.Component {
     if (typeof dealId === 'number') {
       if (dealId > 0 && dealId < 101) {
         $.ajax({
-          url: `http://localhost:3003/images/${dealId}`,
+          url: `http://ec2-54-193-1-193.us-west-1.compute.amazonaws.com/images/${dealId}`,
           success: (data) => {
             console.log(data.data);
             that.setState({
@@ -67,14 +67,10 @@ class Gallery extends React.Component {
           dataType: 'json',
         });
       } else {
-        console.log(
-          `Error: invalid ID: ${dealId}. Please use an ID between 1 and 100 in url. Ex: "localhost:3000/deals/<<ID>>"`,
-        );
+        console.log(`Error: invalid ID: ${dealId}. Please use an ID between 1 and 100 in url.`);
       }
     } else {
-      console.log(
-        `Error: invalid URL: ${window.location.href}. Please redirect to "localhost:3000/deals/1"`,
-      );
+      console.log(`Error: invalid URL: ${window.location.href}. Please redirect`);
     }
   }
 

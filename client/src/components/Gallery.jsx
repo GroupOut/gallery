@@ -99,7 +99,7 @@ class Gallery extends React.Component {
 
   render() {
     return (
-      <div className={styles.wrapper}>
+      <div className={styles.wrapper} id='gallery'>
         <button className={styles.next} onClick={this.handleNextClick} type="button">
           {'>'}
         </button>

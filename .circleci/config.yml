@@ -7,7 +7,12 @@ jobs:
   build:
     docker:
       # specify the version you desire here
-      - image: circleci/node:7.10
+      - image: circleci/node:8.11
+      - image: circleci/mysql:5.7.22
+        environment:
+          - MYSQL_ALLOW_EMPTY_PASSWORD=true
+          - MYSQL_ROOT_HOST=%
+
       
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
@@ -27,6 +32,9 @@ jobs:
           - v1-dependencies-
 
       - run: npm install
+      - run: yarn install
+      - run: sudo apt install -y mysql-client
+      - run: mysql -h 127.0.0.1 -u root < ./schema.sql
 
       - save_cache:
           paths:

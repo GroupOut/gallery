@@ -11,28 +11,38 @@ class Thumbnail extends React.Component {
 
   render() {
     let thumbnailImg;
-
-    if (this.props.current.substring(0, 52) === this.props.thumb.substring(0, 52)) {
-      thumbnailImg = (
-        <img
-          className={styles.thumbnailCurrent}
-          src={this.props.thumb}
-          alt=""
-          onClick={this.props.handleThumbnailClick}
-        />
-      );
+    if (this.props.current !== undefined) {
+      if (this.props.current.substring(0, 52) === this.props.thumb.substring(0, 52)) {
+        thumbnailImg = (
+          <img
+            className={styles.thumbnailCurrent}
+            src={this.props.thumb}
+            alt=""
+            onClick={this.props.handleThumbnailClick}
+          />
+        );
+      } else {
+        thumbnailImg = (
+          <img
+            className={styles.thumbnailImage}
+            src={this.props.thumb}
+            alt=""
+            onClick={this.props.handleThumbnailClick}
+          />
+        );
+      }
     } else {
       thumbnailImg = (
         <img
-          className={styles.thumbnailImage}
-          src={this.props.thumb}
+          className={styles.thumbnailCurrent}
+          src="https://s3-us-west-1.amazonaws.com/groupout98hr/default.png"
           alt=""
           onClick={this.props.handleThumbnailClick}
         />
       );
     }
     return (
-      <li className={styles.thumbnailListElement}>
+      <li className={styles.thumbnailListElement} id="thumbnail">
         {thumbnailImg}
       </li>
     );
